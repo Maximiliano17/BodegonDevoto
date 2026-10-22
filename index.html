@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodegón Devoto - Sabores de Siempre | Grabado Antiguo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#F3EFE0',
+                        'parchment-dark': '#E2D9C5',
+                        'ink-black': '#1C1917',
+                        'ink-light': '#36302C',
+                        'rust-red': '#8B261D',
+                        'rust-dark': '#5C1711',
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Spectral', 'serif'],
+                        gothic: ['UnifrakturMaguntia', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Textura y tramado de grabado antiguo (Cross-hatching background) */
+        body {
+            background-color: #F3EFE0;
+            background-image: 
+                radial-gradient(#1c1917 0.75px, transparent 0.75px),
+                linear-gradient(to right, rgba(28,25,23,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(28,25,23,0.03) 1px, transparent 1px);
+            background-size: 24px 24px, 12px 12px, 12px 12px;
+            color: #1C1917;
+        }
+
+        /* Marcos y filigranas estilo xilografía */
+        .woodcut-border {
+            border: 4px solid #1C1917;
+            outline: 2px dashed #1C1917;
+            outline-offset: -8px;
+            box-shadow: 6px 6px 0px #1C1917;
+        }
+
+        .woodcut-border-thin {
+            border: 2px solid #1C1917;
+            box-shadow: 3px 3px 0px #1C1917;
+        }
+
+        .woodcut-button {
+            border: 2px solid #1C1917;
+            box-shadow: 4px 4px 0px #1C1917;
+            transition: all 0.15s ease;
+        }
+
+        .woodcut-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #1C1917;
+        }
+
+        .woodcut-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #1C1917;
+        }
+
+        /* Tratamiento de imágenes estilo grabado antiguo / imprenta vintage */
+        .engraving-photo {
+            filter: contrast(118%) sepia(25%) saturate(85%) warm-tone;
+            mix-blend-mode: multiply;
+            border: 2px solid #1C1917;
+            box-shadow: 4px 4px 0px #1C1917;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .engraving-photo:hover {
+            filter: contrast(125%) sepia(10%) saturate(100%);
+            transform: scale(1.02);
+        }
+
+        .photo-frame {
+            position: relative;
+            border: 3px solid #1C1917;
+            padding: 6px;
+            background: #E2D9C5;
+            box-shadow: 5px 5px 0px #1C1917;
+        }
+
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border: 1px dashed #1C1917;
+            pointer-events: none;
+        }
+
+        /* Separador de grabado */
+        .engraving-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .engraving-divider::before,
+        .engraving-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 2px solid #1C1917;
+        }
+
+        .engraving-divider::before {
+            margin-right: .75em;
+        }
+
+        .engraving-divider::after {
+            margin-left: .75em;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3EFE0;
+            border-left: 1px solid #1C1917;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8B261D;
+            border: 1px solid #1C1917;
+        }
+    </style>
+</head>
+<body class="font-body min-h-screen flex flex-col justify-between selection:bg-rust-red selection:text-parchment">
+
+    <!-- HEADER / NAVEGACIÓN ARTESANAL -->
+    <header class="sticky top-0 z-40 bg-parchment border-b-4 border-ink-black shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Brand -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 border-2 border-ink-black bg-rust-red text-parchment flex items-center justify-center font-heading font-black text-xl shadow-[2px_2px_0px_#1C1917]">
+                    BD
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-black text-xl tracking-wider text-ink-black uppercase leading-none">Bodegón Devoto</span>
+                    <span class="font-body text-xs text-rust-red italic font-semibold tracking-widest mt-0.5">Est. Villa Devoto</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 font-heading text-sm font-bold tracking-wide">
+                <a href="#destacados" class="hover:text-rust-red transition-colors border-b-2 border-transparent hover:border-rust-red">Destacados</a>
+                <a href="#menu" class="hover:text-rust-red transition-colors border-b-2 border-transparent hover:border-rust-red">La Carta</a>
+                <a href="#informacion" class="hover:text-rust-red transition-colors border-b-2 border-transparent hover:border-rust-red">Info & Ubicación</a>
+                <a href="tel:01170961405" class="woodcut-button bg-rust-red text-parchment px-4 py-1.5 font-bold flex items-center space-x-2">
+                    <i class="fa-solid fa-phone text-xs"></i>
+                    <span>011 7096-1405</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden woodcut-button bg-parchment-dark p-2 text-ink-black focus:outline-none" aria-label="Menú">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t-2 border-ink-black bg-parchment px-4 py-3 space-y-3 font-heading text-center">
+            <a href="#destacados" class="block py-2 border-b border-ink-black/20 hover:text-rust-red">Destacados</a>
+            <a href="#menu" class="block py-2 border-b border-ink-black/20 hover:text-rust-red">La Carta</a>
+            <a href="#informacion" class="block py-2 border-b border-ink-black/20 hover:text-rust-red">Info & Ubicación</a>
+            <a href="tel:01170961405" class="block woodcut-button bg-rust-red text-parchment py-2 font-bold my-2">
+                <i class="fa-solid fa-phone mr-2"></i> Reservar: 011 7096-1405
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- HERO SECTION: LINOGRABADO CON FOTOGRAFÍAS REALES INTEGRADAS -->
+        <section class="max-w-6xl mx-auto px-4 py-8 md:py-12">
+            <div class="woodcut-border bg-parchment-dark p-6 md:p-10 relative overflow-hidden">
+                <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+                    
+                    <!-- Texto Principal -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <!-- Sello / Emblema -->
+                        <div class="inline-block border-2 border-ink-black px-4 py-1 mb-4 bg-parchment font-heading text-xs md:text-sm font-bold tracking-widest uppercase">
+                            ✦ Cocina Porteña & Tradicional ✦
+                        </div>
+                        
+                        <h1 class="font-heading text-4xl md:text-6xl font-black text-ink-black leading-tight tracking-tight uppercase mb-2">
+                            Bodegón Devoto
+                        </h1>
+                        <p class="font-body text-2xl md:text-3xl text-rust-red italic font-bold mb-4">
+                            "Sabores de Siempre"
+                        </p>
+
+                        <div class="engraving-divider max-w-md mx-auto lg:mx-0 text-rust-red font-heading font-black text-lg">
+                            ❖ ❖ ❖
+                        </div>
+
+                        <p class="font-body text-lg md:text-xl text-ink-light leading-relaxed mb-6">
+                            Porciones generosas, parrilla al carbón, pastas caseras amasadas a mano y la mística inconfundible del clásico bodegón de barrio en Villa Devoto.
+                        </p>
+
+                        <!-- Accesos rápidos hero -->
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                            <a href="#menu" class="woodcut-button bg-rust-red text-parchment font-heading font-bold px-6 py-3 text-base flex items-center space-x-2">
+                                <i class="fa-solid fa-utensils"></i>
+                                <span>VER LA CARTA COMPLETA</span>
+                            </a>
+                            <a href="https://wa.me/5491170961405?text=Hola!%20Quiero%20hacer%20un%20pedido%20o%20reserva%20en%20Bodeg%C3%B3n%20Devoto" target="_blank" rel="noopener noreferrer" class="woodcut-button bg-parchment text-ink-black font-heading font-bold px-6 py-3 text-base flex items-center space-x-2">
+                                <i class="fa-brands fa-whatsapp text-lg text-emerald-800"></i>
+                                <span>RESERVAR MESA</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mosaico de Imágenes con Marcos Grabados -->
+                    <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div class="photo-frame transform -rotate-1">
+                            <img src="foto1.png" alt="Parrilla y carnes en Bodegón Devoto" class="w-full h-44 object-cover engraving-photo">
+                            <p class="text-[10px] font-heading font-bold text-center mt-1 uppercase tracking-wider text-ink-black">Parrilla a la Leña</p>
+                        </div>
+                        <div class="photo-frame transform rotate-2">
+                            <img src="foto3.png" alt="Pastas caseras de Bodegón Devoto" class="w-full h-44 object-cover engraving-photo">
+                            <p class="text-[10px] font-heading font-bold text-center mt-1 uppercase tracking-wider text-ink-black">Pastas Caseras</p>
+                        </div>
+                        <div class="photo-frame col-span-2 transform rotate-1">
+                            <img src="foto2.png" alt="Mesa servida en Bodegón Devoto" class="w-full h-40 object-cover engraving-photo">
+                            <p class="text-[10px] font-heading font-bold text-center mt-1 uppercase tracking-wider text-ink-black">Nuestra Mesa Porteña en Villa Devoto</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 1: DESTACADOS CON FOTOS Y DETALLE DEL PLATO DEL DÍA -->
+        <section id="destacados" class="max-w-6xl mx-auto px-4 py-6">
+            <div class="text-center mb-8">
+                <h2 class="font-heading text-2xl md:text-3xl font-black uppercase tracking-wider text-ink-black inline-block border-b-4 border-rust-red pb-1">
+                    Plato del Día & Especiales
+                </h2>
+                <p class="text-xs md:text-sm text-rust-red font-bold font-heading tracking-widest uppercase mt-2">Platos frescos preparados en el momento</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- CARD: PLATO DEL DÍA CON FOTO -->
+                <div class="woodcut-border bg-parchment p-6 relative flex flex-col justify-between">
+                    <div class="absolute -top-3 left-6 bg-rust-red text-parchment font-heading font-bold text-xs uppercase px-3 py-1 border border-ink-black z-10">
+                        ★ Plato del Día
+                    </div>
+                    
+                    <div>
+                        <div class="photo-frame mb-4">
+                            <img src="foto4.png" alt="Milanesa Napolitana con Papas Fritas" class="w-full h-56 object-cover engraving-photo">
+                        </div>
+
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-2xl font-bold text-ink-black">Gran Milanesa Bife de Chorizo XXL</h3>
+                            <span class="font-heading font-black text-xl text-rust-red bg-parchment-dark border border-ink-black px-2 py-0.5 shrink-0 ml-2">$36.000</span>
+                        </div>
+                        <p class="text-ink-light italic mb-4 text-sm leading-relaxed">
+                            Milanesa de bife de chorizo crocante con salsa de tomates asados, mozzarella gratinada, jamón cocido, dos huevos fritos a caballo y abundante porción de papas fritas caseras.
+                        </p>
+                    </div>
+
+                    <div class="border-t-2 border-dashed border-ink-black/40 pt-3 flex justify-between items-center text-xs font-heading font-bold">
+                        <span class="text-rust-red"><i class="fa-solid fa-users mr-1"></i> Comen 2 • Pican 3</span>
+                        <a href="https://wa.me/5491170961405?text=Hola!%20Quiero%20pedir%20el%20Plato%20del%20D%C3%ADa:%20Milanesa%20Bife%20de%20Chorizo" target="_blank" class="text-ink-black hover:text-rust-red underline">Pedir por WA →</a>
+                    </div>
+                </div>
+
+                <!-- CARD: MENÚ DEL DÍA CON FOTO -->
+                <div class="woodcut-border bg-parchment p-6 relative flex flex-col justify-between">
+                    <div class="absolute -top-3 left-6 bg-ink-black text-parchment font-heading font-bold text-xs uppercase px-3 py-1 border border-ink-black z-10">
+                        ❖ Menú del Día (Lun a Vie 12 a 16 hs)
+                    </div>
+
+                    <div>
+                        <div class="photo-frame mb-4">
+                            <img src="foto6.png" alt="Menú del Día - Pasta y Vino" class="w-full h-56 object-cover engraving-photo">
+                        </div>
+
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-2xl font-bold text-ink-black">Menú Ejecutivo Completo</h3>
+                            <span class="font-heading font-black text-xl text-rust-red bg-parchment-dark border border-ink-black px-2 py-0.5 shrink-0 ml-2">$24.000</span>
+                        </div>
+                        <p class="text-ink-light italic mb-3 text-sm">
+                            Incluye Entrada + Plato Principal + Postre o Café + Bebida o Limonada.
+                        </p>
+                        <ul class="text-xs space-y-1 text-ink-black mb-4">
+                            <li class="flex items-center"><i class="fa-solid fa-circle-small text-rust-red mr-2"></i> <strong>Entrada:</strong> Empanada frita o Buñuelos de Espinaca.</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-small text-rust-red mr-2"></i> <strong>Principal:</strong> Ravioles, Bife con Papas o Pollito al Verdeo.</li>
+                            <li class="flex items-center"><i class="fa-solid fa-circle-small text-rust-red mr-2"></i> <strong>Postre:</strong> Flan casero con dulce de leche o café.</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t-2 border-dashed border-ink-black/40 pt-3 flex justify-between items-center text-xs font-heading font-bold">
+                        <span class="text-rust-red"><i class="fa-solid fa-rotate mr-1"></i> Varía todas las semanas</span>
+                        <a href="https://wa.me/5491170961405?text=Hola!%20Quiero%20consultar%20el%20Men%C3%BA%20del%20D%C3%ADa" target="_blank" class="text-ink-black hover:text-rust-red underline">Consultar Menú →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: CARTAS INTERACTIVAS (Nuestra Carta, Vinos y Más, Cafetería) -->
+        <section id="menu" class="max-w-6xl mx-auto px-4 py-10">
+            <div class="woodcut-border bg-parchment p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h2 class="font-heading text-3xl md:text-4xl font-black uppercase text-ink-black">Las Cartas del Bodegón</h2>
+                    <p class="font-body text-base text-rust-red italic">Seleccione entre nuestras 3 cartas oficiales para explorar el menú</p>
+                </div>
+
+                <!-- Pestañas de la carta -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 border-b-2 border-ink-black pb-4">
+                    <button onclick="switchTab('comidas')" id="tab-comidas" class="woodcut-button tab-btn active bg-rust-red text-parchment font-heading font-bold text-sm md:text-base px-5 py-2.5">
+                        <i class="fa-solid fa-utensils mr-2"></i>NUESTRA CARTA
+                    </button>
+                    <button onclick="switchTab('vinos')" id="tab-vinos" class="woodcut-button tab-btn bg-parchment-dark text-ink-black font-heading font-bold text-sm md:text-base px-5 py-2.5">
+                        <i class="fa-solid fa-wine-glass mr-2"></i>VINOS Y MÁS
+                    </button>
+                    <button onclick="switchTab('cafeteria')" id="tab-cafeteria" class="woodcut-button tab-btn bg-parchment-dark text-ink-black font-heading font-bold text-sm md:text-base px-5 py-2.5">
+                        <i class="fa-solid fa-mug-hot mr-2"></i>CAFETERÍA
+                    </button>
+                </div>
+
+                <!-- Buscador rápido dentro de la carta -->
+                <div class="max-w-md mx-auto mb-8">
+                    <div class="relative">
+                        <input type="text" id="menu-search" onkeyup="filterMenuItems()" placeholder="Buscar en la carta (ej. Provoleta, Entraña, Malbec, Flan)..." class="w-full bg-parchment-dark border-2 border-ink-black px-4 py-2 font-body text-sm focus:outline-none focus:ring-2 focus:ring-rust-red placeholder-ink-black/60">
+                        <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-ink-black"></i>
+                    </div>
+                </div>
+
+                <!-- CARTA 1: NUESTRA CARTA (COMIDAS) -->
+                <div id="content-comidas" class="tab-content space-y-8">
+                    
+                    <!-- Destacados visuales con fotos -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Entraña Grillada" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Entraña 700g • $78.000</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="foto5.png" alt="Ravioles Nero di Sepia" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Ravioles Trucha • $35.000</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=400&q=80" alt="Provoleta Devoto" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Provoleta Devoto • $21.500</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80" alt="Flan Casero" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Flan Mixto • $10.500</p>
+                        </div>
+                    </div>
+
+                    <!-- Entradas -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Entradas Clásicas
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Provoleta Devoto (Morrón, cebolla crispy, huevo frito y panceta)</span>
+                                    <span class="text-rust-red font-black">$21.500</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Burrata Siciliana (Mix de verdes, olivas negras y tomates asados)</span>
+                                    <span class="text-rust-red font-black">$26.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Tortilla de la Casa (Con chistorra y alioli de ajo)</span>
+                                    <span class="text-rust-red font-black">$23.500</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Rabas Rebozadas con Alioli</span>
+                                    <span class="text-rust-red font-black">$23.500</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Gambas al Ajillo con Papas</span>
+                                    <span class="text-rust-red font-black">$30.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Empanada de Carne Soufflé (Cortada a cuchillo)</span>
+                                    <span class="text-rust-red font-black">$5.100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parrilla & Grillados -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Grillados (Con guarnición a elección)
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Bife de Chorizo Mariposa (800g - Comen 2, pican 3)</span>
+                                    <span class="text-rust-red font-black">$83.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Entraña (350g // 700g)</span>
+                                    <span class="text-rust-red font-black">$45.000 // $78.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Matambre Tiernizado</span>
+                                    <span class="text-rust-red font-black">$38.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Trucha Grill con Ensalada Rúcula y Palta</span>
+                                    <span class="text-rust-red font-black">$36.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milanesas -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Milanesas Gigantes
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Milanesa Napolitana Completa (con Papas Fritas y 2 Huevos)</span>
+                                    <span class="text-rust-red font-black">$32.000 | XL $51.500</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Gran Milanesa Bodegón XXL (Comen 4, pican 5)</span>
+                                    <span class="text-rust-red font-black">$95.000</span>
+                                </div>
+                                <p class="text-xs italic text-ink-light">Cheddar, panceta, provoleta con chorizo colorado, hongos, napolitana y rúcula.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Postres -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Postres de la Casa
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Flan Casero o Budín de Pan al Caramelo</span>
+                                    <span class="text-rust-red font-black">$10.500</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Volcán de Chocolate con Helado de Pistacho</span>
+                                    <span class="text-rust-red font-black">$21.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Tiramisú Italiano</span>
+                                    <span class="text-rust-red font-black">$13.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Panqueques con Dulce de Leche</span>
+                                    <span class="text-rust-red font-black">$13.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTA 2: VINOS Y MÁS -->
+                <div id="content-vinos" class="tab-content hidden space-y-8">
+                    <!-- Destacados visuales de vinos y tragos -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&q=80" alt="Vino Malbec" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Salentein Reserva • $26.000</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Trago Negroni" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Negroni Perfecto • $15.000</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=400&q=80" alt="Fernet Branca con Coca" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Fernet Branca • $10.000</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=400&q=80" alt="Cervezas Heladas" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Corona 330cc • $7.000</p>
+                        </div>
+                    </div>
+
+                    <!-- Malbecs & Tintos -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Selección Malbec & Tintos
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Saint Felicien Malbec (Catena Zapata)</span>
+                                    <span class="text-rust-red font-black">$25.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Salentein Reserva Malbec (Valle de Uco)</span>
+                                    <span class="text-rust-red font-black">$8.000 | $26.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>DV Catena Cabernet Malbec</span>
+                                    <span class="text-rust-red font-black">$28.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Angélica Zapata Cabernet Franc</span>
+                                    <span class="text-rust-red font-black">$45.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tragos Clásicos & Autor -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Coctelería de Bodegón
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Sangría Devota (Vino tinto, frutos rojos y limón)</span>
+                                    <span class="text-rust-red font-black">$12.500</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Fernet Branca con Coca-Cola</span>
+                                    <span class="text-rust-red font-black">$10.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Aperol Spritz</span>
+                                    <span class="text-rust-red font-black">$11.000</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Espresso Borghetti</span>
+                                    <span class="text-rust-red font-black">$12.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARTA 3: CAFETERÍA -->
+                <div id="content-cafeteria" class="tab-content hidden space-y-8">
+                    <!-- Destacados visuales de cafetería -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80" alt="Café en Jarrito" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Café con Leche • $5.000</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=400&q=80" alt="Capuccino Italiano" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Capuccino • $5.200</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=400&q=80" alt="Limonada Menta y Jengibre" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Limonada Menta • $4.900</p>
+                        </div>
+                        <div class="photo-frame">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Café Irlandés" class="w-full h-28 object-cover engraving-photo">
+                            <p class="text-[11px] font-heading font-bold text-center mt-1">Café Irlandés • $6.000</p>
+                        </div>
+                    </div>
+
+                    <!-- Bebidas Calientes y Frías -->
+                    <div>
+                        <h3 class="font-heading text-xl font-black text-rust-red uppercase border-b-2 border-rust-red pb-1 mb-4 flex items-center">
+                            <span class="mr-2">❖</span> Para la Tarde & Cafetería
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4 menu-grid">
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Café con Leche / Café Doble</span>
+                                    <span class="text-rust-red font-black">$5.000 | $4.600</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Café en Jarrito / Cortado</span>
+                                    <span class="text-rust-red font-black">$4.200 | $3.600</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Limonada Menta y Jengibre</span>
+                                    <span class="text-rust-red font-black">$4.900 | $7.600</span>
+                                </div>
+                            </div>
+                            <div class="menu-item border-b border-ink-black/20 pb-2">
+                                <div class="flex justify-between font-heading font-bold text-base">
+                                    <span>Jugo Exprimido de Naranja Natural</span>
+                                    <span class="text-rust-red font-black">$5.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: INFORMACIÓN PRÁCTICA & MAPA GOOGLE EMBEDDED -->
+        <section id="informacion" class="max-w-6xl mx-auto px-4 py-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Detalles de Información -->
+                <div class="lg:col-span-5 woodcut-border bg-parchment p-6 space-y-6">
+                    <h2 class="font-heading text-2xl md:text-3xl font-black uppercase text-ink-black border-b-2 border-ink-black pb-2">
+                        Información Útil
+                    </h2>
+
+                    <!-- Promedio de Consumo -->
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 border-2 border-ink-black bg-rust-red text-parchment flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-wallet text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-ink-black uppercase text-sm">Gasto Promedio</h4>
+                            <p class="text-lg font-bold text-rust-red">$20.000 a $40.000 <span class="text-xs font-normal text-ink-light">por persona</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Horarios -->
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 border-2 border-ink-black bg-rust-red text-parchment flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-clock text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-ink-black uppercase text-sm">Horario de Atención</h4>
+                            <p class="text-base text-ink-black font-semibold">Abierto Todos los Días</p>
+                            <p class="text-sm text-rust-red font-bold">De 12:00 a 24:00 hs (De 12 a 12)</p>
+                        </div>
+                    </div>
+
+                    <!-- Dirección -->
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 border-2 border-ink-black bg-rust-red text-parchment flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-ink-black uppercase text-sm">Dirección</h4>
+                            <p class="text-base text-ink-black font-semibold">Av. Chivilcoy 3818</p>
+                            <p class="text-sm text-ink-light">Villa Devoto, CABA, Argentina</p>
+                        </div>
+                    </div>
+
+                    <!-- Teléfono y Redes -->
+                    <div class="border-t-2 border-dashed border-ink-black pt-4 space-y-3">
+                        <a href="tel:01170961405" class="woodcut-button bg-parchment-dark text-ink-black p-3 font-heading font-bold flex items-center justify-between block">
+                            <span><i class="fa-solid fa-phone mr-2 text-rust-red"></i> Llamar al Local:</span>
+                            <span class="underline">011 7096-1405</span>
+                        </a>
+
+                        <a href="https://www.instagram.com/bodegon.devoto" target="_blank" rel="noopener noreferrer" class="woodcut-button bg-rust-red text-parchment p-3 font-heading font-bold flex items-center justify-between block">
+                            <span><i class="fa-brands fa-instagram mr-2"></i> Seguinos en Instagram:</span>
+                            <span>@bodegon.devoto</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps con Iframe Solicitado -->
+                <div class="lg:col-span-7 woodcut-border bg-parchment-dark p-4 relative">
+                    <div class="border-2 border-ink-black p-1 bg-parchment">
+                        <h3 class="font-heading font-bold text-center py-2 text-ink-black uppercase text-sm border-b border-ink-black mb-2">
+                            ❖ Cómo Llegar - Av. Chivilcoy 3818, Villa Devoto ❖
+                        </h3>
+                        <div class="w-full h-[400px] overflow-hidden border border-ink-black">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.1411661050856!2d-58.51275125698132!3d-34.600591699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb70031fb2191%3A0x8a0c2dd01753f575!2sBodegon%20Devoto!5e0!3m2!1ses-419!2sar!4v1792663508229!5m2!1ses-419!2sar" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; filter: contrast(110%) sepia(20%);" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="strict-origin-when-cross-origin">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink-black text-parchment border-t-4 border-ink-black py-8 px-4 font-heading">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
+            <div>
+                <h4 class="text-xl font-black uppercase tracking-wider">Bodegón Devoto</h4>
+                <p class="text-xs text-parchment-dark font-body italic">Sabores de Siempre • Villa Devoto</p>
+            </div>
+            <div class="text-xs text-parchment-dark">
+                <p>Av. Chivilcoy 3818, Villa Devoto | Tel: 011 7096-1405</p>
+                <p class="mt-1">© 2026 Bodegón Devoto. Todos los derechos reservados.</p>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/bodegon.devoto" target="_blank" rel="noopener noreferrer" class="text-parchment hover:text-rust-red text-2xl">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTONES FLOTANTES RÁPIDOS -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col space-y-3">
+        <!-- Botón Llamar -->
+        <a href="tel:01170961405" class="woodcut-button bg-parchment text-ink-black w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg hover:bg-parchment-dark" title="Llamar">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <!-- Botón WhatsApp -->
+        <a href="https://wa.me/5491170961405?text=Hola!%20Quiero%20consultar%20o%20reservar%20en%20Bodeg%C3%B3n%20Devoto" target="_blank" rel="noopener noreferrer" class="woodcut-button bg-emerald-800 text-parchment w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-emerald-900" title="Contactar por WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT DE INTERACTIVIDAD -->
+    <script>
+        // Toggle Menú Mobile
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Pestañas de las 3 Cartas
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-rust-red', 'text-parchment');
+                btn.classList.add('bg-parchment-dark', 'text-ink-black');
+            });
+
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.remove('bg-parchment-dark', 'text-ink-black');
+            activeBtn.classList.add('bg-rust-red', 'text-parchment');
+
+            document.getElementById('menu-search').value = '';
+            filterMenuItems();
+        }
+
+        // Filtro buscador en vivo
+        function filterMenuItems() {
+            const query = document.getElementById('menu-search').value.toLowerCase();
+            const visibleTab = document.querySelector('.tab-content:not(.hidden)');
+            const items = visibleTab.querySelectorAll('.menu-item');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
